@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Adventure</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            background-image: url('file:///C:/Users/loken/Desktop/CHAND%20BDAY/WhatsApp%20Image%202024-01-24%20at%203.59.15%20PM.jpeg'); 
+            background-size: 1500;
+            background-position: Center;
+            margin: 0;
+            padding: 100px;
+            color: #fff;
+        }
+        h1 {
+            color: #white ;
+        }
+        p {
+            font-size: 1.2em;
+            font-colour: #white;
+        }
+        img {
+            width: 300px;
+            height: auto;
+            margin-top: 2sss0px;
+        }
+        .options {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .option-button {
+            background-color: #blue;
+            color: #red;
+            padding: 5px 10px;
+            margin: 0px;
+            border: none;
+            cursor: pointer;ss        
+        }
+        .video-container {
+            display: none;
+            margin-top: 20px;
+        }
+        iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Happy Birthday chand ❤️!</h1>
+    <p id="birthdayWish"></p>
+    <img src="file:///C:/Users/loken/Desktop/CHAND%20BDAY/WhatsApp%20Image%202024-01-24%20at%205.29.05%20PM.jpeg" alt="full page">
+
+    <div class="options">
+        <button class="option-button" onclick="nextOption()">Next</button>
+    </div>
+
+    <div class="video-container" id="videoContainer">
+        <!-- Embed your cute baby video here -->
+        <iframe src="https://www.youtube.com/embed/your-video-id" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <script>
+        var currentOption = 1;
+
+        function nextOption() {
+            var birthdayWishElement = document.getElementById("birthdayWish");
+            var optionsElement = document.querySelector('.options');
+            var videoContainer = document.getElementById('videoContainer');
+
+            switch (currentOption) {
+                case 1:
+                    // First wishing happy birthday
+                    var wishes = [
+                        "Hope tera ye bday tere life mein bahut sari khushiyan leke ayein 🤗!",
+                        "Tere Life ke saarein problems jldi se phurrr hojaye 🤩! 🎉",
+                        "Humesha tu muskurati rhein 😘! Happy Birthday!",
+                        // Add more wishes as needed
+                    ];
+                    var randomIndex = Math.floor(Math.random() * wishes.length);
+                    birthdayWishElement.textContent = wishes[randomIndex];
+                    break;
+                case 2:
+                    // Asking to smile
+                    birthdayWishElement.textContent = "Smile, please! 😊";
+                    optionsElement.innerHTML = '<button class="option-button" onclick="nextOption()">Next</button>';
+                    break;
+                case 3:
+                    // Asking to go out
+                    birthdayWishElement.textContent = "How about celebrating your special day with an adventure? 🎈";
+                    optionsElement.innerHTML = '<button class="option-button" onclick="goOut()">Yes, let\'s go out!</button>' +
+                                                '<button class="option-button" onclick="stayIn()">No, I prefer to stay in.</button>';
+                    break;
+                case 4:
+                    // If yes, suggest some place
+                    birthdayWishElement.textContent = "Haa thooo chalo chalein, disco mein jaye , kisi hotel mein khaye ";
+                    optionsElement.innerHTML = '<button class="option-button" onclick="finish()">Sounds awesome!</button>';
+                    break;
+                case 5:
+                    // If no, show cute baby video
+                    birthdayWishElement.textContent = "plsss ana zarur, bolo chandini maate ki jai !";
+                    optionsElement.innerHTML = '';
+                    videoContainer.style.display = 'block';
+                    break;
+            }
+
+            currentOption++;
+        }
+
+        function goOut() {
+            var birthdayWishElement = document.getElementById("birthdayWish");
+            birthdayWishElement.textContent = "Haa thooo chalo chalein, disco mein jaye , kisi hotel mein khaye?";
+            var optionsElement = document.querySelector('.options');
+            optionsElement.innerHTML = '<button class="option-button" onclick="finish()">Sounds awesome!</button>';
+        }
+
+        function stayIn() {
+            var birthdayWishElement = document.getElementById("birthdayWish");
+            birthdayWishElement.textContent = "plsss ana zarur, bolo chandini maate ki jai!";
+            var optionsElement = document.querySelector('.options');
+            optionsElement.innerHTML = '';
+            var videoContainer = document.getElementById('videoContainer');
+            videoContainer.style.display = 'block';
+        }
+
+        function finish() {
+            var birthdayWishElement = document.getElementById("birthdayWish");
+            birthdayWishElement.textContent = "Wishing you a birthday filled with joy, whatever you choose to do! 🎂";
+            var optionsElement = document.querySelector('.options');
+            optionsElement.innerHTML = '';
+            var videoContainer = document.getElementById('videoContainer');
+            videoContainer.style.display = 'none';
+        }
+    </script>
+</body>
+</html>s
